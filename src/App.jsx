@@ -1,14 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { connect } from "react-redux";
-import { increaseCounter, decreaseCounter } from "./redux/action/action";
 import store from "./redux/store";
 import { useSelector, useDispatch } from "react-redux";
+import Home from "./components/Home/Home";
 
 function App(props) {
-  // const [count, setCount] = useState(0);
   const dispatch = useDispatch();
   document.title = "React Redux";
 
@@ -16,37 +15,11 @@ function App(props) {
     return state.counter.count;
   });
 
-  const handleRedux = () => {
-    dispatch(increaseCounter);
-    // props.increaseCounter();
-    // store.dispatch({
-    //   type: "INCREMENT",
-    //   payload: { name: "increaseCounter" },
-    // });
-  };
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="App">
+        <Home />
       </div>
-      <h1>React Redux {newCount}</h1>
-      <div className="card">
-        <button onClick={() => dispatch(increaseCounter())}>
-          count is {props.count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
