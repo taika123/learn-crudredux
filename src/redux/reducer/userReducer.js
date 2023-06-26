@@ -5,6 +5,9 @@ import {
   CREATE_USERS_REQUEST,
   CREATE_USERS_SUCCESS,
   CREATE_USERS_ERROR,
+  DELETE_USERS_REQUEST,
+  DELETE_USERS_SUCCESS,
+  DELETE_USERS_ERROR,
 } from "../action/type";
 
 const INITIAL_STATE = {
@@ -17,7 +20,7 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_USERS_REQUEST:
-      console.log("FETCH_USERS_REQUEST", action);
+      // console.log("FETCH_USERS_REQUEST", action);
       return {
         ...state,
         isLoading: true,
@@ -25,7 +28,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     case FETCH_USERS_SUCCESS:
-      console.log("FETCH_USERS_SUCCESS", action);
+      // console.log("FETCH_USERS_SUCCESS", action);
       return {
         ...state,
         listUsers: action.dataUsers,
@@ -34,7 +37,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     case FETCH_USERS_ERROR:
-      console.log("FETCH_USERS_ERROR", action);
+      // console.log("FETCH_USERS_ERROR", action);
       return {
         ...state,
         isLoading: false,
@@ -52,6 +55,19 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
 
     case CREATE_USERS_ERROR:
+      return {
+        ...state,
+      };
+
+    case DELETE_USERS_REQUEST:
+      return {
+        ...state,
+      };
+    case DELETE_USERS_SUCCESS:
+      return {
+        ...state,
+      };
+    case DELETE_USERS_ERROR:
       return {
         ...state,
       };

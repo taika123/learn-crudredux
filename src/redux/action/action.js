@@ -12,14 +12,17 @@ import {
 } from "./type";
 
 // start doing fishish
+
+//fetch all data with server API
 export const fetchAllDataUsers = () => {
+  //middleware redux thunk
   return async (dispatch, getState) => {
     dispatch(fetchUsersRequest());
     try {
       const res = await axios.get("http://localhost:8080/users/all");
       const data = res && res.data ? res.data : [];
       dispatch(fetchUsersSuccess(data));
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log(error, "Error");
       dispatch(fetchUsersError());

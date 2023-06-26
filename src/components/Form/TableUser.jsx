@@ -41,13 +41,13 @@ function TableUser(props) {
           <tbody>
             {isError === true ? (
               <>
-                <div>Something wrongs, please try again?</div>
+                <tr>Something wrongs, please try again?</tr>
               </>
             ) : (
               <>
                 {isLoading === true ? (
                   <>
-                    <div>Loading</div>
+                    <tr>Loading</tr>
                   </>
                 ) : (
                   <>
